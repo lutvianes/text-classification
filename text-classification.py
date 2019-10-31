@@ -56,3 +56,11 @@ def clean_text(text):
 
 bow_vector = CountVectorizer(tokenizer = spacy_tokenizer, ngram_range=(1,1))
 tfidf_vector = TfidfVectorizer(tokenizer = spacy_tokenizer)
+
+# Split data into training and test sets
+from sklearn.model_selection import train_test_split
+
+X = df_amazon['verified_reviews'] # the features we want to analyze
+ylabels = df_amazon['feedback'] # the labels, or answers, we want to test against
+
+X_train, X_test, y_train, y_test = train_test_split(X, ylabels, test_size=0.3)
