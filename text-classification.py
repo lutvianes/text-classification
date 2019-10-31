@@ -76,3 +76,12 @@ pipe = Pipeline([("cleaner", predictors()),
 
 # model generation
 pipe.fit(X_train,y_train)
+
+from sklearn import metrics
+# Predicting with a test dataset
+predicted = pipe.predict(X_test)
+
+# Model Accuracy
+print("Logistic Regression Accuracy:",metrics.accuracy_score(y_test, predicted))
+print("Logistic Regression Precision:",metrics.precision_score(y_test, predicted))
+print("Logistic Regression Recall:",metrics.recall_score(y_test, predicted))
