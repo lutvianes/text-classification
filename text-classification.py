@@ -53,3 +53,6 @@ class predictors(TransformerMixin):
 def clean_text(text):
     # Removing spaces and converting text into lowercase
     return text.strip().lower()
+
+bow_vector = CountVectorizer(tokenizer = spacy_tokenizer, ngram_range=(1,1))
+tfidf_vector = TfidfVectorizer(tokenizer = spacy_tokenizer)
